@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Aseo del Grupo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="contenedor-app">
+
+    <header class="encabezado">
+      <div class="encabezado-interno">
+        <div class="titulo-encabezado">
+          <span class="icono-encabezado">🧹</span>
+          <div>
+            <h1>Gestión de Aseo</h1>
+            <p class="subtitulo-encabezado">Sistema de turnos del grupo</p>
+          </div>
+        </div>
+        <button class="btn-primario" id="btnAgregarIntegrante">+ Agregar Integrante</button>
+      </div>
+    </header>
+
+    <main class="contenido-principal">
+
+      <!-- SEMANA ACTUAL -->
+      <section class="seccion">
+        <h2 class="titulo-seccion">📅 Semana Actual</h2>
+        <div class="cuadricula-semana" id="cuadriculaSemana"></div>
+      </section>
+
+      <!-- INTEGRANTES -->
+      <section class="seccion">
+        <div class="encabezado-seccion">
+          <h2 class="titulo-seccion">👥 Integrantes del Grupo</h2>
+          <span class="etiqueta" id="contadorIntegrantes">0 integrantes</span>
+        </div>
+        <div id="listaIntegrantes" class="lista-integrantes"></div>
+        <div id="estadoVacio" class="estado-vacio">
+          <span>😴</span>
+          <p>No hay integrantes aún.<br>Agrega uno para comenzar.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MODAL: AGREGAR / EDITAR INTEGRANTE -->
+    <div class="fondo-modal" id="fondoModal">
+      <div class="modal">
+        <div class="encabezado-modal">
+          <h3 id="tituloModal">Nuevo Integrante</h3>
+          <button class="cerrar-modal" id="cerrarModal">&times;</button>
+        </div>
+        <div class="cuerpo-modal">
+          <div class="grupo-campo">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" id="inputNombre" placeholder="Ej: Ana García" maxlength="40" />
+          </div>
+          <div class="grupo-campo">
+            <label>Estado</label>
+            <div class="grupo-toggle">
+              <button class="btn-toggle activo" id="toggleActivo">✅ Activo</button>
+              <button class="btn-toggle" id="toggleInactivo">⛔ Inactivo</button>
+            </div>
+          </div>
+        </div>
+        <div class="pie-modal">
+          <button class="btn-secundario" id="btnCancelar">Cancelar</button>
+          <button class="btn-primario" id="btnGuardar">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: REEMPLAZO ALEATORIO -->
+    <div class="fondo-modal" id="fondoReemplazo">
+      <div class="modal modal-pequeno">
+        <div class="encabezado-modal">
+          <h3>⚡ Reemplazo Aleatorio</h3>
+          <button class="cerrar-modal" id="cerrarReemplazo">&times;</button>
+        </div>
+        <div class="cuerpo-modal" id="cuerpoReemplazo"></div>
+        <div class="pie-modal">
+          <button class="btn-primario" id="confirmarReemplazo">Confirmar reemplazo</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/almacenamiento.js"></script>
+  <script src="js/asignacion.js"></script>
+  <script src="js/interfaz.js"></script>
+  <script src="js/aplicacion.js"></script>
+</body>
+</html>
